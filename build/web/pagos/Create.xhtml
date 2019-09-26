@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_idPago}" for="idPago" />
+                    <h:inputText id="idPago" value="#{pagosController.selected.idPago}" title="#{bundle.CreatePagosTitle_idPago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idPago}"/>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{pagosController.selected.fecha}" title="#{bundle.CreatePagosTitle_fecha}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{pagosController.selected.createdAt}" title="#{bundle.CreatePagosTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{pagosController.selected.updatedAt}" title="#{bundle.CreatePagosTitle_updatedAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_idModopago}" for="idModopago" />
+                    <h:selectOneMenu id="idModopago" value="#{pagosController.selected.idModopago}" title="#{bundle.CreatePagosTitle_idModopago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idModopago}">
+                        <f:selectItems value="#{modoPagosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_idMotociclista}" for="idMotociclista" />
+                    <h:selectOneMenu id="idMotociclista" value="#{pagosController.selected.idMotociclista}" title="#{bundle.CreatePagosTitle_idMotociclista}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idMotociclista}">
+                        <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pagosController.create}" value="#{bundle.CreatePagosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pagosController.prepareList}" value="#{bundle.CreatePagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePagosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

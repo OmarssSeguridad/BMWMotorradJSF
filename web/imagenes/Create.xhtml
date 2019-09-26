@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateImagenesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateImagenesLabel_idImagenes}" for="idImagenes" />
+                    <h:inputText id="idImagenes" value="#{imagenesController.selected.idImagenes}" title="#{bundle.CreateImagenesTitle_idImagenes}" required="true" requiredMessage="#{bundle.CreateImagenesRequiredMessage_idImagenes}"/>
+                    <h:outputLabel value="#{bundle.CreateImagenesLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{imagenesController.selected.name}" title="#{bundle.CreateImagenesTitle_name}" required="true" requiredMessage="#{bundle.CreateImagenesRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.CreateImagenesLabel_ruta}" for="ruta" />
+                    <h:inputText id="ruta" value="#{imagenesController.selected.ruta}" title="#{bundle.CreateImagenesTitle_ruta}" required="true" requiredMessage="#{bundle.CreateImagenesRequiredMessage_ruta}"/>
+                    <h:outputLabel value="#{bundle.CreateImagenesLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{imagenesController.selected.createdAt}" title="#{bundle.CreateImagenesTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateImagenesLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{imagenesController.selected.updatedAt}" title="#{bundle.CreateImagenesTitle_updatedAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{imagenesController.create}" value="#{bundle.CreateImagenesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{imagenesController.prepareList}" value="#{bundle.CreateImagenesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateImagenesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
