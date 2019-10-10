@@ -19,7 +19,8 @@
                     <h:outputText value="#{categoriasController.pagination.pageFirstItem + 1}..#{categoriasController.pagination.pageLastItem + 1}/#{categoriasController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{categoriasController.previous}" value="#{bundle.Previous} #{categoriasController.pagination.pageSize}" rendered="#{categoriasController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{categoriasController.next}" value="#{bundle.Next} #{categoriasController.pagination.pageSize}" rendered="#{categoriasController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{categoriasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    
+                    <h:dataTable value="#{categoriasController.items}" var="item" border="0" cellpadding="2" cellspacing="1" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCategoriasTitle_idCategoria}"/>
@@ -54,15 +55,14 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
                         </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
+                                <h:outputText value="Accion"/>
                             </f:facet>
-                            <h:commandLink action="#{categoriasController.prepareView}" value="#{bundle.ListCategoriasViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categoriasController.prepareEdit}" value="#{bundle.ListCategoriasEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{categoriasController.destroy}" value="#{bundle.ListCategoriasDestroyLink}"/>
+                            <button class="btn btn-danger btn-fill pull-right"><h:commandLink action="#{categoriasController.destroy}" value="#{bundle.ListCategoriasDestroyLink}"/></button>
+                            <button class="btn btn-warning btn-fill pull-right"><h:commandLink action="#{categoriasController.prepareEdit}" value="#{bundle.ListCategoriasEditLink}"/></button>
+                            <button class="btn btn-info btn-fill pull-right"><h:commandLink action="#{categoriasController.prepareView}" value="#{bundle.ListCategoriasViewLink}"/></button>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

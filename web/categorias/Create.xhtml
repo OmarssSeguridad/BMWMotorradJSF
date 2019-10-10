@@ -14,7 +14,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="6">
                     <h:outputLabel value="#{bundle.CreateCategoriasLabel_idCategoria}" for="idCategoria" />
                     <h:inputText id="idCategoria" value="#{categoriasController.selected.idCategoria}" title="#{bundle.CreateCategoriasTitle_idCategoria}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_idCategoria}"/>
                     <h:outputLabel value="#{bundle.CreateCategoriasLabel_name}" for="name" />
@@ -25,10 +25,11 @@
                     <h:inputText id="createdAt" value="#{categoriasController.selected.createdAt}" title="#{bundle.CreateCategoriasTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateCategoriasLabel_updatedAt}" for="updatedAt" />
-                    <h:inputText id="updatedAt" value="#{categoriasController.selected.updatedAt}" title="#{bundle.CreateCategoriasTitle_updatedAt}" >
+                    <h:outputLabel  value="#{bundle.CreateCategoriasLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText  id="updatedAt" value="#{categoriasController.selected.updatedAt}" title="#{bundle.CreateCategoriasTitle_updatedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
+                    
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categoriasController.create}" value="#{bundle.CreateCategoriasSaveLink}" />
