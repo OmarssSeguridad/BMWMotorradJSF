@@ -14,39 +14,81 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditPagosLabel_idPago}" for="idPago" />
-                    <h:inputText id="idPago" value="#{pagosController.selected.idPago}" title="#{bundle.EditPagosTitle_idPago}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idPago}"/>
-                    <h:outputLabel value="#{bundle.EditPagosLabel_fecha}" for="fecha" />
-                    <h:inputText id="fecha" value="#{pagosController.selected.fecha}" title="#{bundle.EditPagosTitle_fecha}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_fecha}">
+                <div class="content">   
+                    <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-md-12">
+                    <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title" style="font-family: 'Montserrat';">Editar Pagos</h4>
+                    </div>
+                    <div class="card-body">
+                    <div class="row">   
+                <div class="col-md-4 px-1">    
+                        <div class="form-group">
+                    <h:outputLabel class="label"  value="#{bundle.EditPagosLabel_idPago}" for="idPago" />
+                    <h:inputText class="form-control" id="idPago" value="#{pagosController.selected.idPago}" title="#{bundle.EditPagosTitle_idPago}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idPago}"/>
+                 </div>
+                 </div>
+                    <div class="col-md-4 px-1">    
+                        <div class="form-group">
+                    <h:outputLabel class="label"  value="#{bundle.EditPagosLabel_fecha}" for="fecha" />
+                    <h:inputText class="form-control" id="fecha" value="#{pagosController.selected.fecha}" title="#{bundle.EditPagosTitle_fecha}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_fecha}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditPagosLabel_createdAt}" for="createdAt" />
-                    <h:inputText id="createdAt" value="#{pagosController.selected.createdAt}" title="#{bundle.EditPagosTitle_createdAt}" >
+                    </div>
+                 </div>
+                 <div class="col-md-4 px-1">    
+                        <div class="form-group">    
+                    <h:outputLabel class="label"  value="#{bundle.EditPagosLabel_createdAt}" for="createdAt" />
+                    <h:inputText class="form-control" id="createdAt" value="#{pagosController.selected.createdAt}" title="#{bundle.EditPagosTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditPagosLabel_updatedAt}" for="updatedAt" />
-                    <h:inputText id="updatedAt" value="#{pagosController.selected.updatedAt}" title="#{bundle.EditPagosTitle_updatedAt}" >
+                    </div>
+                 </div>
+                 <div class="col-md-4 px-1">    
+                        <div class="form-group">    
+                    <h:outputLabel class="label"  value="#{bundle.EditPagosLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText class="form-control" id="updatedAt" value="#{pagosController.selected.updatedAt}" title="#{bundle.EditPagosTitle_updatedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditPagosLabel_idModopago}" for="idModopago" />
-                    <h:selectOneMenu id="idModopago" value="#{pagosController.selected.idModopago}" title="#{bundle.EditPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idModopago}">
+                    </div>
+                 </div>
+                 <div class="col-md-4 px-1">    
+                        <div class="form-group">    
+                    <h:outputLabel class="label"  value="#{bundle.EditPagosLabel_idModopago}" for="idModopago" />
+                    <h:selectOneMenu class="form-control" id="idModopago" value="#{pagosController.selected.idModopago}" title="#{bundle.EditPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idModopago}">
                         <f:selectItems value="#{modoPagosController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditPagosLabel_idMotociclista}" for="idMotociclista" />
-                    <h:selectOneMenu id="idMotociclista" value="#{pagosController.selected.idMotociclista}" title="#{bundle.EditPagosTitle_idMotociclista}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idMotociclista}">
+                    </div>
+                 </div>
+                 <div class="col-md-4 px-1">    
+                        <div class="form-group">    
+                    <h:outputLabel class="label"  value="#{bundle.EditPagosLabel_idMotociclista}" for="idMotociclista" />
+                    <h:selectOneMenu class="form-control" id="idMotociclista" value="#{pagosController.selected.idMotociclista}" title="#{bundle.EditPagosTitle_idMotociclista}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idMotociclista}">
                         <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{pagosController.update}" value="#{bundle.EditPagosSaveLink}"/>
+                        </div>
+                 </div>
+                </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right"  action="#{pagosController.update}" value="#{bundle.EditPagosSaveLink}"/>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditPagosViewLink}"/>
-                <br />
-                <h:commandLink action="#{pagosController.prepareList}" value="#{bundle.EditPagosShowAllLink}" immediate="true"/>
+                <h:link class="btn btn-success" outcome="View" value="#{bundle.EditPagosViewLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditPagosIndexLink}" />
+                <h:commandLink class="btn btn-secondary" action="#{pagosController.prepareList}" value="#{bundle.EditPagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.EditPagosIndexLink}" />
+                <br/>
+                <br/>
             </h:form>
         </ui:define>
     </ui:composition>

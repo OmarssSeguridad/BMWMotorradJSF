@@ -58,19 +58,22 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{modoPagosController.prepareView}" value="#{bundle.ListModoPagosViewLink}"/>
+                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{modoPagosController.prepareView}" value="#{bundle.ListModoPagosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{modoPagosController.prepareEdit}" value="#{bundle.ListModoPagosEditLink}"/>
+                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{modoPagosController.prepareEdit}" value="#{bundle.ListModoPagosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{modoPagosController.destroy}" value="#{bundle.ListModoPagosDestroyLink}"/>
+                            <h:commandLink class="btn btn-danger btn-fill pull-right" action="#{modoPagosController.destroy}" value="#{bundle.ListModoPagosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{modoPagosController.prepareCreate}" value="#{bundle.ListModoPagosCreateLink}"/>
+                <h:commandLink class="btn btn-secondary" action="#{modoPagosController.prepareCreate}" value="#{bundle.ListModoPagosCreateLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListModoPagosIndexLink}"/>
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.ListModoPagosIndexLink}"/>
+                <br />
+                <br />
+                
             </h:form>
         </ui:define>
     </ui:composition>

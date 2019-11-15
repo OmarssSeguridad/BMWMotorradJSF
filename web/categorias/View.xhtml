@@ -14,31 +14,83 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Editar Categoria</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                 <div class="col-md-2 px-1">    
+                    <div class="form-group">
                     <h:outputText value="#{bundle.ViewCategoriasLabel_idCategoria}"/>
+                    </div>
+                 </div>
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
                     <h:outputText value="#{categoriasController.selected.idCategoria}" title="#{bundle.ViewCategoriasTitle_idCategoria}"/>
+                    </div>
+                </div>
                     <h:outputText value="#{bundle.ViewCategoriasLabel_name}"/>
+                <div class="col-md-2 px-1">    
+                    <div class="form-group">    
                     <h:outputText value="#{categoriasController.selected.name}" title="#{bundle.ViewCategoriasTitle_name}"/>
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                    <div class="form-group">
                     <h:outputText value="#{bundle.ViewCategoriasLabel_detalle}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">    
                     <h:outputText value="#{categoriasController.selected.detalle}" title="#{bundle.ViewCategoriasTitle_detalle}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
                     <h:outputText value="#{bundle.ViewCategoriasLabel_createdAt}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">    
                     <h:outputText value="#{categoriasController.selected.createdAt}" title="#{bundle.ViewCategoriasTitle_createdAt}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:outputText>
+                    </div>
+                </div>    
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
                     <h:outputText value="#{bundle.ViewCategoriasLabel_updatedAt}"/>
+                    </div>
+                </div>
                     <h:outputText value="#{categoriasController.selected.updatedAt}" title="#{bundle.ViewCategoriasTitle_updatedAt}">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:outputText>
-                </h:panelGrid>
+
+                
+                    <br />
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+                <br/>
+                
+                <h:commandLink class="btn btn-danger" action="#{categoriasController.destroyAndView}" value="#{bundle.ViewCategoriasDestroyLink}"/>
+                <td/>
+                <h:link class="btn btn-warning" outcome="Edit" value="#{bundle.ViewCategoriasEditLink}"/>
                 <br />
-                <h:commandLink action="#{categoriasController.destroyAndView}" value="#{bundle.ViewCategoriasDestroyLink}"/>
+                <br />
+                <h:commandLink class="btn btn-info" action="#{categoriasController.prepareCreate}" value="#{bundle.ViewCategoriasCreateLink}" />
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCategoriasEditLink}"/>
-                <br />
-                <h:commandLink action="#{categoriasController.prepareCreate}" value="#{bundle.ViewCategoriasCreateLink}" />
-                <br />
-                <h:commandLink action="#{categoriasController.prepareList}" value="#{bundle.ViewCategoriasShowAllLink}"/>
+                <h:commandLink class="btn btn-success" action="#{categoriasController.prepareList}" value="#{bundle.ViewCategoriasShowAllLink}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ViewCategoriasIndexLink}"/>

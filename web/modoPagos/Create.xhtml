@@ -14,30 +14,54 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateModoPagosLabel_idModopago}" for="idModopago" />
-                    <h:inputText id="idModopago" value="#{modoPagosController.selected.idModopago}" title="#{bundle.CreateModoPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_idModopago}"/>
-                    <h:outputLabel value="#{bundle.CreateModoPagosLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{modoPagosController.selected.name}" title="#{bundle.CreateModoPagosTitle_name}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.CreateModoPagosLabel_detalle}" for="detalle" />
-                    <h:inputText id="detalle" value="#{modoPagosController.selected.detalle}" title="#{bundle.CreateModoPagosTitle_detalle}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_detalle}"/>
-                    <h:outputLabel value="#{bundle.CreateModoPagosLabel_createdAt}" for="createdAt" />
-                    <h:inputText id="createdAt" value="#{modoPagosController.selected.createdAt}" title="#{bundle.CreateModoPagosTitle_createdAt}" >
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+            <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                   <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                         <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_name}" for="name" />
+                         <h:inputText class="form-control"  id="name" value="#{modoPagosController.selected.name}" title="#{bundle.CreateModoPagosTitle_name}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_name}"/>
+                     </div>
+                    </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                         <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_detalle}" for="detalle" />
+                         <h:inputText class="form-control" id="detalle" value="#{modoPagosController.selected.detalle}" title="#{bundle.CreateModoPagosTitle_detalle}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_detalle}"/>
+                    </div>
+                    </div>
+                    <h:outputLabel style="visibility: hidden"  value="#{bundle.CreateModoPagosLabel_idModopago}" for="idModopago" />
+                    <h:inputText style="visibility: hidden" id="idModopago" value="#{modoPagosController.selected.idModopago}" title="#{bundle.CreateModoPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_idModopago}"/>
+                    <h:outputLabel style="visibility: hidden"   value="#{bundle.CreateModoPagosLabel_createdAt}" for="createdAt" />
+                    <h:inputText style="visibility: hidden" id="createdAt" value="#{modoPagosController.selected.createdAt}" title="#{bundle.CreateModoPagosTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateModoPagosLabel_updatedAt}" for="updatedAt" />
-                    <h:inputText id="updatedAt" value="#{modoPagosController.selected.updatedAt}" title="#{bundle.CreateModoPagosTitle_updatedAt}" >
+                    <h:outputLabel style="visibility: hidden"  value="#{bundle.CreateModoPagosLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText style="visibility: hidden"  id="updatedAt" value="#{modoPagosController.selected.updatedAt}" title="#{bundle.CreateModoPagosTitle_updatedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                </h:panelGrid>
+            </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right"  action="#{modoPagosController.create}" value="#{bundle.CreateModoPagosSaveLink}" />
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
                 <br />
-                <h:commandLink action="#{modoPagosController.create}" value="#{bundle.CreateModoPagosSaveLink}" />
+                <br />
+                <h:commandLink class="btn btn-secondary"  action="#{modoPagosController.prepareList}" value="#{bundle.CreateModoPagosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:commandLink action="#{modoPagosController.prepareList}" value="#{bundle.CreateModoPagosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateModoPagosIndexLink}"/>
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateModoPagosIndexLink}"/>
+                <br/>
+                <br/>
             </h:form>
         </ui:define>
     </ui:composition>

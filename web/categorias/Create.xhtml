@@ -14,32 +14,53 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="6">
-                    <h:outputLabel value="#{bundle.CreateCategoriasLabel_idCategoria}" for="idCategoria" />
-                    <h:inputText id="idCategoria" value="#{categoriasController.selected.idCategoria}" title="#{bundle.CreateCategoriasTitle_idCategoria}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_idCategoria}"/>
-                    <h:outputLabel value="#{bundle.CreateCategoriasLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{categoriasController.selected.name}" title="#{bundle.CreateCategoriasTitle_name}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.CreateCategoriasLabel_detalle}" for="detalle" />
-                    <h:inputText id="detalle" value="#{categoriasController.selected.detalle}" title="#{bundle.CreateCategoriasTitle_detalle}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_detalle}"/>
-                    <h:outputLabel value="#{bundle.CreateCategoriasLabel_createdAt}" for="createdAt" />
-                    <h:inputText id="createdAt" value="#{categoriasController.selected.createdAt}" title="#{bundle.CreateCategoriasTitle_createdAt}" >
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Categoria</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateCategoriasLabel_name}" for="Nombre" />
+                    <h:inputText  class="form-control" id="name" value="#{categoriasController.selected.name}" title="#{bundle.CreateCategoriasTitle_name}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_name}"/>
+                     </div>
+                </div>  
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateCategoriasLabel_detalle}" for="detalle" />
+                    <h:inputText  class="form-control" id="detalle" value="#{categoriasController.selected.detalle}" title="#{bundle.CreateCategoriasTitle_detalle}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_detalle}"/>
+                     </div> 
+                </div>
+                    <h:outputLabel class="label" style="visibility: hidden" value="#{bundle.CreateCategoriasLabel_idCategoria}" for="idCategoria" />
+                    <h:inputText  class="form-control" style="visibility: hidden" id="idCategoria" value="#{categoriasController.selected.idCategoria}" title="#{bundle.CreateCategoriasTitle_idCategoria}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_idCategoria}"/>
+                    <h:outputLabel style="visibility: hidden" class="label" value="#{bundle.CreateCategoriasLabel_createdAt}" for="createdAt" />
+                    <h:inputText  class="form-control" style="visibility: hidden" id="createdAt" value="#{categoriasController.selected.createdAt}" title="#{bundle.CreateCategoriasTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel  value="#{bundle.CreateCategoriasLabel_updatedAt}" for="updatedAt" />
-                    <h:inputText  id="updatedAt" value="#{categoriasController.selected.updatedAt}" title="#{bundle.CreateCategoriasTitle_updatedAt}" >
+                    <h:outputLabel class="label" style="visibility: hidden"  value="#{bundle.CreateCategoriasLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText  class="form-control" style="visibility: hidden"  id="updatedAt" value="#{categoriasController.selected.updatedAt}" title="#{bundle.CreateCategoriasTitle_updatedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    
-                </h:panelGrid>
+            </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{categoriasController.create}" value="#{bundle.CreateCategoriasSaveLink}" />
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
                 <br />
-                <h:commandLink action="#{categoriasController.create}" value="#{bundle.CreateCategoriasSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{categoriasController.prepareList}" value="#{bundle.CreateCategoriasShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateCategoriasIndexLink}"/>
+                <br/>
+                <h:commandLink class="btn btn-secondary" action="#{categoriasController.prepareList}" value="#{bundle.CreateCategoriasShowAllLink}" immediate="true"/>
+                <td/>
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateCategoriasIndexLink}"/>
             </h:form>
+            <br/>
         </ui:define>
     </ui:composition>
 
