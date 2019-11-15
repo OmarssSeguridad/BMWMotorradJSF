@@ -14,13 +14,41 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_idPago}" for="idPago" />
-                    <h:inputText id="idPago" value="#{pagosController.selected.idPago}" title="#{bundle.CreatePagosTitle_idPago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idPago}"/>
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_fecha}" for="fecha" />
-                    <h:inputText id="fecha" value="#{pagosController.selected.fecha}" title="#{bundle.CreatePagosTitle_fecha}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_fecha}">
+                <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+            <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreatePagosLabel_fecha}" for="fecha" />
+                    <h:inputText class="form-control"  id="fecha" value="#{pagosController.selected.fecha}" title="#{bundle.CreatePagosTitle_fecha}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_fecha}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreatePagosLabel_idModopago}" for="idModopago" />
+                    <h:selectOneMenu  class="form-control"  id="idModopago" value="#{pagosController.selected.idModopago}" title="#{bundle.CreatePagosTitle_idModopago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idModopago}">
+                        <f:selectItems class="form-control"  value="#{modoPagosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreatePagosLabel_idMotociclista}" for="idMotociclista" />
+                    <h:selectOneMenu class="form-control"  id="idMotociclista" value="#{pagosController.selected.idMotociclista}" title="#{bundle.CreatePagosTitle_idMotociclista}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idMotociclista}">
+                        <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    </div>
+                </div>
+                    
                     <h:outputLabel value="#{bundle.CreatePagosLabel_createdAt}" for="createdAt" />
                     <h:inputText id="createdAt" value="#{pagosController.selected.createdAt}" title="#{bundle.CreatePagosTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -29,23 +57,26 @@
                     <h:inputText id="updatedAt" value="#{pagosController.selected.updatedAt}" title="#{bundle.CreatePagosTitle_updatedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_idModopago}" for="idModopago" />
-                    <h:selectOneMenu id="idModopago" value="#{pagosController.selected.idModopago}" title="#{bundle.CreatePagosTitle_idModopago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idModopago}">
-                        <f:selectItems value="#{modoPagosController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreatePagosLabel_idMotociclista}" for="idMotociclista" />
-                    <h:selectOneMenu id="idMotociclista" value="#{pagosController.selected.idMotociclista}" title="#{bundle.CreatePagosTitle_idMotociclista}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idMotociclista}">
-                        <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
+                    <h:outputLabel value="#{bundle.CreatePagosLabel_idPago}" for="idPago" />
+                    <h:inputText id="idPago" value="#{pagosController.selected.idPago}" title="#{bundle.CreatePagosTitle_idPago}" required="true" requiredMessage="#{bundle.CreatePagosRequiredMessage_idPago}"/>
+                    
                 <br />
-                <h:commandLink action="#{pagosController.create}" value="#{bundle.CreatePagosSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{pagosController.prepareList}" value="#{bundle.CreatePagosShowAllLink}" immediate="true"/>
+                </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right"  action="#{pagosController.create}" value="#{bundle.CreatePagosSaveLink}" />
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreatePagosIndexLink}"/>
+                <h:commandLink class="btn btn-secondary"  action="#{pagosController.prepareList}" value="#{bundle.CreatePagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreatePagosIndexLink}"/>
+                <br />
+                <br />
             </h:form>
         </ui:define>
     </ui:composition>
